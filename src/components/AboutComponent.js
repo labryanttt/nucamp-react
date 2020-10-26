@@ -19,13 +19,20 @@ function RenderPartner({partner}) {
 
 function About(props) {
 
+    // const partners = props.partners.map(partner => {
+    //     return (
+    //         <h5>{partner.name}</h5>
+    //     );
+    // });
+
     const partners = props.partners.map(partner => {
         return (
             <Media tag="li" key={partner.id}>
                 <RenderPartner partner={partner}/>
             </Media>
         );
-        });
+    });
+
 
     return (
         <div className="container">
