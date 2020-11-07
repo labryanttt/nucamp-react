@@ -49,7 +49,6 @@ function PartnerList(props) {
         );
     }
 
-
     return (
         <div className="col mt-4">
                 <Media list>
@@ -59,13 +58,9 @@ function PartnerList(props) {
                 </Media>
         </div>
     );
-
 }
 
-
 function About(props) {
-
-    
 
     return (
         <div className="container">
