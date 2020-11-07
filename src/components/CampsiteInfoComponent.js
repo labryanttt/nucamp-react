@@ -8,7 +8,7 @@ import { Control, LocalForm, Errors } from "react-redux-form";
 const maxLength = (len) => (val) => !val || val.length <= len;
 const minLength = (len) => (val) => val && val.length >= len;
 
-function RenderComments({comments, postComment, campsiteId}) {
+function RenderCampsite({ campsite }) {
     return (
         <div className="col-md-5 m-1">
             <Card>
@@ -35,7 +35,7 @@ function RenderComments({comments, addComment, campsiteId}) {
                         </p>
                     </div>
                 ))}
-                <CommentForm campsiteId={campsiteId} postComment={postComment} />
+                <CommentForm campsiteId={campsiteId} addComment={addComment} />
 
             </div>
         );
@@ -63,7 +63,7 @@ class CommentForm extends Component {
 
     handleSubmit(values) {
         this.toggleModal();
-        this.props.postComment(this.props.campsiteId, values.rating, values.author, values.text);
+        this.props.addComment(this.props.campsiteId, values.rating, values.author, values.text);
     }
 
     render() {
@@ -167,11 +167,11 @@ function CampsiteInfo(props) {
                 </div>
                 <div className="row">
                     <RenderCampsite campsite={props.campsite} />
-                    <RenderComments
+                    <RenderComments 
                         comments={props.comments}
-                        postComment={props.postComment}
+                        addComment={props.addComment}
                         campsiteId={props.campsite.id}
-                    />       
+                    />
                 </div>
             </div>
         );
